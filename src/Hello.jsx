@@ -14,7 +14,9 @@ function Hello() {
 					setData(result.data);
 					setLoaded(true);
 				},
-				(error) => {}
+				(error) => {
+					setLoaded(false);
+				}
 			);
 	}, []);
 	return (
@@ -28,7 +30,7 @@ function Hello() {
 			</Helmet>
 			<div className=" text-center">
 				<h1 className="txet-sh font-semibold text-9xl p-2">
-					{loaded ? data.live : "--"}
+					{loaded && data?.live ? data?.live : "--"}
 				</h1>
 				<Link to={"/live-results"} className=" text-sm text-green-700">
 					Updated : 2022/12/7 12:01:28
@@ -102,28 +104,28 @@ function Hello() {
 				</Link>
 			</div>
 			<TwoDitem
-				time="11:00 PM"
-				set={loaded ? data.set_1100 : "-,---.--"}
-				val={loaded ? data.val_1100 : "--,---.--"}
-				result={loaded ? data.result_1100 : "--"}
+				time="11:00 AM"
+				set={loaded && data?.set_1100 ? data?.set_1100 : "-,---.--"}
+				val={loaded && data?.val_1100 ? data.val_1100 : "--,---.--"}
+				result={loaded && data?.result_1100 ? data.result_1100 : "--"}
 			/>
 			<TwoDitem
 				time="12:01 PM"
-				set={loaded ? data.set_1200 : "-,---.--"}
-				val={loaded ? data.val_1200 : "--,---.--"}
-				result={loaded ? data.result_1200 : "--"}
+				set={loaded && data?.set_1200 ? data.set_1200 : "-,---.--"}
+				val={loaded && data?.val_1200 ? data.val_1200 : "--,---.--"}
+				result={loaded && data?.result_1200 ? data.result_1200 : "--"}
 			/>
 			<TwoDitem
 				time="3:00 PM"
-				set={loaded ? data.set_300 : "-,---.--"}
-				val={loaded ? data.val_300 : "--,---.--"}
-				result={loaded ? data.result_300 : "--"}
+				set={loaded && data?.set_300 ? data.set_300 : "-,---.--"}
+				val={loaded && data?.val_300 ? data.val_300 : "--,---.--"}
+				result={loaded && data?.result_300 ? data.result_300 : "--"}
 			/>
 			<TwoDitem
 				time="4:30 PM"
-				set={loaded ? data.set_430 : "-,---.--"}
-				val={loaded ? data.val_430 : "--,---.--"}
-				result={loaded ? data.result_430 : "--"}
+				set={loaded && data?.set_430 ? data.set_430 : "-,---.--"}
+				val={loaded && data?.val_430 ? data.val_430 : "--,---.--"}
+				result={loaded && data?.result_430 ? data.result_430 : "--"}
 			/>
 			{/* <div className="m-[10px]">
 				<img src="./adsj.gif" alt="" className=" w-full" />
@@ -134,13 +136,17 @@ function Hello() {
 					<div className="">
 						<span className="text-xs">Modern</span>
 						<h4 className="text-base font-semibold">
-							{data.modern_930}
+							{loaded && data?.modern_930
+								? data?.modern_930
+								: "--"}
 						</h4>
 					</div>
 					<div className="">
 						<span className="text-xs">Internet</span>
 						<h4 className="text-base font-semibold">
-							{data.internet_930}
+							{loaded && data?.internet_930
+								? data?.internet_930
+								: "--"}
 						</h4>
 					</div>
 				</div>
@@ -150,13 +156,17 @@ function Hello() {
 					<div className="">
 						<span className="text-xs">Modern</span>
 						<h4 className="text-base font-semibold">
-							{data.modern_200}
+							{loaded && data?.modern_200
+								? data?.modern_200
+								: "--"}
 						</h4>
 					</div>
 					<div className="">
 						<span className="text-xs">Internet</span>
 						<h4 className="text-base font-semibold">
-							{data.internet_200}
+							{loaded && data?.internet_200
+								? data?.internet_200
+								: "--"}
 						</h4>
 					</div>
 				</div>
