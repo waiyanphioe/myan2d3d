@@ -1,15 +1,19 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
-const Layout = () => {
+const Layout = (props) => {
 	return (
 		<div className="">
-			<Helmet>
-				<title>Live Results | Myan2D3D</title>
-			</Helmet>
 			<header className="">
-				<nav className="">Back</nav>
+				<nav className="">
+					<button
+						onClick={() => {
+							history.back();
+						}}
+					>
+						Back
+					</button>
+				</nav>
 			</header>
 			<Outlet />
 		</div>
