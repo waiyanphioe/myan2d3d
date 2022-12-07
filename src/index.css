@@ -18,19 +18,15 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
-}
 
-body,
-html {
-	width: 100%;
-	min-height: 100vh;
-	margin: 0;
-	padding: 0;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
 }
 
 #root {
 	max-width: 425px;
-	height: 100%;
+	height: 100vh;
 	margin: 0 auto;
 	padding: 0;
 	background-image: url("./assets//img/myan_bg.png");
@@ -51,23 +47,32 @@ a {
 	filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.11));
 }
 
-.hr {
-	height: 1px;
-	background-color: #e0e0e0;
-}
-
 .record-div {
 	margin: 10px;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 
-.hiu {
-	width: 45px;
+.record-div > a > svg {
+	filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.11));
+}
+
+.record-div > a {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+}
+
+.md-div {
 	text-align: center;
-	border-radius: 100%;
-	color: var(--text-color);
-	background-color: #fff;
+	margin: 10px;
+	padding: 4px 8px;
+	border-radius: 10px;
+	background-color: var(--bg-color);
+	filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.11));
+}
+
+.tes {
+	align-items: center;
+	justify-content: space-between;
 }
