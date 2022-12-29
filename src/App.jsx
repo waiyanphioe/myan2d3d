@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { MainLayout } from "./layouts";
 import Hello from "./Hello";
-import { TwoDresult } from "./components";
+import { ThreeDresults, TwoDresults, Privacy } from "./components";
 
 const App = () => {
 	return (
@@ -11,11 +11,15 @@ const App = () => {
 				<Route path="/live-results" element={<div>2d</div>} />
 				<Route
 					path="/2d-results"
-					element={<TwoDresult title={"2D Result History"} />}
+					element={<TwoDresults title="2D Result History" />}
 				/>
-				<Route path="/3d-results" element={<div>2d</div>} />
+				<Route
+					path="/3d-results"
+					element={<ThreeDresults title="3D Result History" />}
+				/>
 				<Route path="/closed-days" element={<div>2d</div>} />
 				<Route path="/super-gift" element={<div>2d</div>} />
+				<Route path="/privacy" element={<Privacy title="Privacy" />} />
 			</Route>
 		</Routes>
 	);

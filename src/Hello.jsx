@@ -5,13 +5,15 @@ import TwoDitem from "./components/TwoDitem";
 
 function Hello() {
 	const [data, setData] = useState({});
+	const [live, setLive] = useState({});
 	const [loaded, setLoaded] = useState(false);
 	useEffect(() => {
 		fetch("https://luke.2dboss.com/api/luke/twod-result-live")
 			.then((res) => res.json())
 			.then(
-				(result) => {
-					setData(result.data);
+				(results) => {
+					setData(results.data);
+					setLive(results.live);
 					setLoaded(true);
 				},
 				(error) => {
@@ -33,7 +35,7 @@ function Hello() {
 					{loaded && data?.live ? data?.live : "--"}
 				</h1>
 				<Link to={"/live-results"} className=" text-sm text-green-700">
-					Updated : 2022/12/7 12:01:28
+					Updated : {loaded ? data?.time : "--"}
 				</Link>
 			</div>
 			<div className="flex m-[10px] justify-around">
@@ -105,7 +107,7 @@ function Hello() {
 			</div>
 			<TwoDitem
 				time="11:00 AM"
-				set={loaded && data?.set_1100 ? data?.set_1100 : "-,---.--"}
+				set={loaded && data?.set_1100 ? data.set_1100 : "-,---.--"}
 				val={loaded && data?.val_1100 ? data.val_1100 : "--,---.--"}
 				result={loaded && data?.result_1100 ? data.result_1100 : "--"}
 			/>
