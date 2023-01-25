@@ -2,29 +2,27 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 
 const TwoDresults = (props) => {
-	const [data, setData] = useState([]);
-	const [loaded, setLoaded] = useState(false);
 	useEffect(() => {
-		fetch("https://backend.shwemyanmar2d.com/api/lv/twod-result")
-			.then((res) => res.json())
-			.then(
-				(results) => {
-					setData(results.data);
-					setLoaded(true);
-					console.log(data);
-				},
-				(error) => {
-					setLoaded(false);
-				}
+		const fetchResult = async () => {
+			const response = await fetch(
+				"https://backend.shwemyanmar2d.com/api/lv/twod-result"
 			);
+			const json = response.json();
+
+			if (response.ok) {
+			}
+		};
+
+		fetchResult();
 	}, []);
 	return (
 		<>
 			<Helmet>
 				<title>{props.title} | Myan2D3D</title>
 			</Helmet>
+
 			<div className="">
-				{data.map((item) => {
+				{json.map((item) => {
 					return (
 						<div
 							key={item.id}
